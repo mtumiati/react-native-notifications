@@ -86,7 +86,7 @@ RCT_EXPORT_METHOD(checkPermissions:(RCTPromiseResolveBlock)resolve
 }
 
 RCT_EXPORT_METHOD(getLastAction: (RCTPromiseResolveBlock) resolve reject: (RCTPromiseRejectBlock)reject){
-    resolve([[RNNotificationsStore sharedInstance] getLastAction]);
+    resolve([[RNNotificationsStore sharedInstance] lastAction]);
 }
 
 #if !TARGET_OS_TV
