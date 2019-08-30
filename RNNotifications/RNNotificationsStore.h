@@ -4,7 +4,6 @@
 @interface RNNotificationsStore : NSObject
 
 @property (nonatomic, retain) NSDictionary* initialNotification;
-@property (nonatomic, retain) NSDictionary* lastAction;
 
 + (instancetype)sharedInstance;
 
@@ -12,6 +11,9 @@
 - (void)completePresentation:(NSString *)completionKey withPresentationOptions:(UNNotificationPresentationOptions)presentationOptions;
 - (void)setActionCompletionHandler:(void (^)(void))completionHandler withCompletionKey:(NSString *)completionKey;
 - (void)setPresentationCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler withCompletionKey:(NSString *)completionKey;
+
+-(void)setLastAction:(NSDictionary*)lastAction;
+-(NSDictionary *)getLastAction;
 
 - (void (^)(void))getActionCompletionHandler:(NSString *)key;
 - (void (^)(UNNotificationPresentationOptions))getPresentationCompletionHandler:(NSString *)key;

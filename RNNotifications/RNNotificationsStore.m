@@ -3,6 +3,7 @@
 @implementation RNNotificationsStore
 NSMutableDictionary* _actionCompletionHandlers;
 NSMutableDictionary* _presentationCompletionHandlers;
+NSDictionary* _lastAction;
 
 + (instancetype)sharedInstance {
     static RNNotificationsStore *sharedInstance = nil;
@@ -51,6 +52,14 @@ NSMutableDictionary* _presentationCompletionHandlers;
         completionHandler(presentationOptions);
         [_presentationCompletionHandlers removeObjectForKey:completionKey];
     }
+}
+
+-(void)setLastAction:(NSDictionary*)lastAction{
+    _lastAction = lastAction;
+}
+
+-(NSDictionary *)getLastAction{
+    return _lastAction;
 }
 
 @end
